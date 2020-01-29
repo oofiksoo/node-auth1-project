@@ -4,9 +4,10 @@ import { displayUserList } from "../actions/actionCreators";
 import Styled from "styled-components";
 const UserListContainer = Styled.div`
 display:flex;
+flex-direction:column;
 background-color:#0099cc;
 padding:1%;
-width:100%;
+width:40%;
 justify-content:center;
 }
 `;
@@ -20,9 +21,9 @@ class UserList extends Component {
   componentDidMount() {
     this.props.displayUserList();
   }
-  // handleclose = () => {
-  //   this.props.history.goBack();
-  // };
+  handleclose = () => {
+    this.props.history.goBack();
+  };
   render() {
     if (!this.props.usertransaction) {
       return (
@@ -42,10 +43,10 @@ class UserList extends Component {
             </div>
           ))}
         </div>
-        {
-          // <div className="closebutton" onClick={this.handleclose()}>
-        }
-        <div> Close</div>
+
+        <div className="closebutton" onClick={() => this.handleclose()}>
+          Close
+        </div>
       </UserListContainer>
     );
   }
