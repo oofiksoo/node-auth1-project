@@ -21,8 +21,8 @@ export const userLogin = (loginData, history) => dispatch => {
           type: types.LOGIN,
           payload: res.data.token
         }) &
-        console.log(res) &
-        localStorage.setItem("Authorization", res.data.token)
+        localStorage.setItem("Authorization", res.data.token) &
+        history.goBack()
     )
     .catch(err => console.log(err));
 };

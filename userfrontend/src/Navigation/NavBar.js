@@ -2,9 +2,6 @@ import React from "react";
 import Styled from "styled-components";
 import { NavLink, Route } from "react-router-dom";
 import Logo from "./logo.js";
-import SignUp from "../components/SignUp";
-import LogIn from "../components/Login";
-import UserList from "../components/UserList.js";
 const NavBarContainer = Styled.div`
 display:flex;
 background-color:#0099cc;
@@ -64,9 +61,6 @@ function NavBar() {
         </NavLink>
       </NavBarItem>
       <Route exact path="/" />
-      <Route path="/Register" component={SignUp} />
-      <Route path="/Login" component={LogIn} />
-      <Route path="/Users" component={UserList} />
     </NavBarContainer>
   );
 }
