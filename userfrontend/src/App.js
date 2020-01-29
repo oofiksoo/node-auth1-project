@@ -14,14 +14,10 @@ width:10%;
 function App() {
   return (
     <Router>
-      <div className="App">
-        <header className="App-header">
-          <NavBar />
-        </header>
-        <SideBarCont>
-          <SideBar />
-        </SideBarCont>
-      </div>
+      <NavBar />
+      <SideBarCont>
+        <SideBar />
+      </SideBarCont>
       <Route path="/Register" component={SignUp} />
       <Route path="/Login" component={LogIn} />
       <Route path="/Users" component={UserList} />
