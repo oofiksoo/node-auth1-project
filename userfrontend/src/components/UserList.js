@@ -7,7 +7,7 @@ display:flex;
 background-color:#0099cc;
 padding:1%;
 width:100%;
-justify-content:flex-end;
+justify-content:center;
 }
 `;
 class UserList extends Component {
@@ -20,9 +20,9 @@ class UserList extends Component {
   componentDidMount() {
     this.props.displayUserList();
   }
-  handleclose = () => {
-    this.props.history.goBack();
-  };
+  // handleclose = () => {
+  //   this.props.history.goBack();
+  // };
   render() {
     if (!this.props.usertransaction) {
       return (
@@ -42,9 +42,10 @@ class UserList extends Component {
             </div>
           ))}
         </div>
-        <div className="closebutton" onClick={this.handleclose()}>
-          Close
-        </div>
+        {
+          // <div className="closebutton" onClick={this.handleclose()}>
+        }
+        <div> Close</div>
       </UserListContainer>
     );
   }
