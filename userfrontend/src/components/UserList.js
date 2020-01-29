@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { displayUserList } from "../actions/actionCreators";
+import Styled from "styled-components";
+const UserListContainer = Styled.div`
+display:flex;
+background-color:#0099cc;
+padding:1%;
+width:100%;
+justify-content:flex-end;
+}
+`;
 class UserList extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +32,8 @@ class UserList extends Component {
       );
     }
     return (
-      <div className="AdminConsole">
+      <UserListContainer>
+        {console.log(this.props.users, "From UserList")}
         <h1> Registered Users: </h1>
         <div className="userlist">
           {this.props.users.map(user => (
@@ -35,7 +45,7 @@ class UserList extends Component {
         <div className="closebutton" onClick={this.handleclose()}>
           Close
         </div>
-      </div>
+      </UserListContainer>
     );
   }
 }

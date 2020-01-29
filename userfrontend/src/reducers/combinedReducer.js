@@ -1,35 +1,30 @@
 import * as types from "../actions/actionTypes";
 
-const user = JSON.parse(localStorage.getItem("user"));
-
 export const initialState = {
-  username: user ? user.username : "",
-  email: user ? user.email : "",
+  username: "",
   password: "",
   users: [],
   logintransaction: false,
-  cookie: []
+  token: []
 };
 
 export const combinedReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.REGISTER:
-      return { ...state, token: action.payload, user: action.payload };
+      return { ...state, token: action.payload };
     case types.LOGIN:
       return {
         ...state,
         error: "",
         token: [action.payload],
-        logintransaction: false,
-        user: [action.payload]
+        logintransaction: false
       };
     case types.LOGIN_SUCCESS:
       return {
         ...state,
         logintransaction: true,
         error: "",
-        token: [...action.payload],
-        user: [...action.payload]
+        token: [...action.payload]
       };
 
     case types.LOGIN_FAILED:
