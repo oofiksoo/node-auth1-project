@@ -10,17 +10,28 @@ const SideBarCont = Styled.div`
 padding:0.003rem;
 width:10%;
 `;
+const ContentContainer = Styled.div`
+padding:1%;
+width:80%;
+`;
+const BodyContainer = Styled.div`
+display:flex;
+`;
 
 function App() {
   return (
     <Router>
       <NavBar />
-      <SideBarCont>
-        <SideBar />
-      </SideBarCont>
-      <Route path="/Register" component={SignUp} />
-      <Route path="/Login" component={LogIn} />
-      <Route path="/Users" component={UserList} />
+      <BodyContainer>
+        <SideBarCont>
+          <SideBar />
+        </SideBarCont>
+        <ContentContainer>
+          <Route path="/Register" component={SignUp} />
+          <Route path="/Login" component={LogIn} />
+          <Route path="/Users" component={UserList} />
+        </ContentContainer>
+      </BodyContainer>
     </Router>
   );
 }
