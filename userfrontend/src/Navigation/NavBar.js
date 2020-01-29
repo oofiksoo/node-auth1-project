@@ -6,7 +6,7 @@ const NavBarContainer = Styled.div`
 display:flex;
 background-color:#0099cc;
 padding:1%;
-width:100%;
+width:90%;
 justify-content:flex-end;
 }
 `;

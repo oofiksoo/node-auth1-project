@@ -9,6 +9,7 @@ background-color:#0099cc;
 padding:1%;
 width:40%;
 justify-content:center;
+border-radius:20px;
 }
 `;
 class UserList extends Component {
@@ -21,9 +22,9 @@ class UserList extends Component {
   componentDidMount() {
     this.props.displayUserList();
   }
-  handleclose = () => {
+  handleclose() {
     this.props.history.goBack();
-  };
+  }
   render() {
     if (!this.props.usertransaction) {
       return (
@@ -34,7 +35,6 @@ class UserList extends Component {
     }
     return (
       <UserListContainer>
-        {console.log(this.props.users, "From UserList")}
         <h1> Registered Users: </h1>
         <div className="userlist">
           {this.props.users.map(user => (
