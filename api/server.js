@@ -12,7 +12,7 @@ const server = express();
 const sessionConfig = {
     name: "CTFcookie01",
     secret: process.env.SESSION_SECRET || "Secret-String",
-    cockie: {
+    cookie: {
         maxAge: 1000 * 60 * 10,
         secure: false,
         httpOnly: true
