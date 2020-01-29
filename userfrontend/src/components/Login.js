@@ -1,13 +1,20 @@
 import React from "react";
-
+import Styled from "styled-components";
 import { Form, Field, withFormik } from "formik";
-
 import * as Yup from "yup";
-
 import { connect } from "react-redux";
-
 import * as actionCreators from "../actions/actionCreators";
 
+const LoginContainer = Styled.div`
+display:flex;
+flex-direction:column;
+background-color:#0099cc;
+padding:1%;
+width:60%;
+justify-content:center;
+border-radius:20px;
+}
+`;
 const Login = ({ errors, touched, values, userLogin, history }) => {
   const handleLoginSubmit = e => {
     console.log("in handleLoginSubmit", values);
@@ -20,7 +27,7 @@ const Login = ({ errors, touched, values, userLogin, history }) => {
     history.goBack();
   };
   return (
-    <div className="login-container">
+    <LoginContainer>
       <div className="xclose" onClick={handleclose}>
         X
       </div>
@@ -47,7 +54,7 @@ const Login = ({ errors, touched, values, userLogin, history }) => {
         )}
         <button> Login </button>
       </Form>
-    </div>
+    </LoginContainer>
   );
 };
 

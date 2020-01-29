@@ -1,5 +1,5 @@
 import React from "react";
-
+import Styled from "styled-components";
 import { Form, Field, withFormik } from "formik";
 
 import * as Yup from "yup";
@@ -7,7 +7,16 @@ import * as Yup from "yup";
 import { connect } from "react-redux";
 
 import * as actionCreators from "../actions/actionCreators";
-
+const RegisterContainer = Styled.div`
+display:flex;
+flex-direction:column;
+background-color:#0099cc;
+padding:1%;
+width:60%;
+justify-content:center;
+border-radius:20px;
+}
+`;
 const SignUp = ({ errors, touched, values, userSignup, history }) => {
   const handleSignupSubmit = e => {
     e.preventDefault();
@@ -19,7 +28,7 @@ const SignUp = ({ errors, touched, values, userSignup, history }) => {
   };
 
   return (
-    <div className="signup-container">
+    <RegisterContainer>
       <div className="xclose" onClick={handleclose}>
         X
       </div>
@@ -48,7 +57,7 @@ const SignUp = ({ errors, touched, values, userSignup, history }) => {
           Register
         </button>
       </Form>
-    </div>
+    </RegisterContainer>
   );
 };
 
