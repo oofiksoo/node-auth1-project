@@ -61,6 +61,11 @@ export const combinedReducer = (state = initialState, action) => {
 
         error: action.payload
       };
+    case types.LOGOUT:
+      return {
+        ...state,
+        token: localStorage.removeItem("token")
+      };
     default:
       return state;
   }

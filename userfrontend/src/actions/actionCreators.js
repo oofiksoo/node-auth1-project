@@ -1,5 +1,6 @@
 import * as types from "./actionTypes";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import Axios from "axios";
 
 export const userSignup = (userData, history) => dispatch => {
   axiosWithAuth()
@@ -27,10 +28,16 @@ export const userLogin = (loginData, history) => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const userLogout = () => {
+export const userLogout = () => dispatch => {
   localStorage.removeItem("token");
-  axiosWithAuth().get("/auth/logout");
-  return { type: types.LOGOUT };
+  Axios.get("http://localhost:5000/api/auth/logout")
+    .then(
+      res =>
+        dispatch({ type: types.LOGOUT }) &
+        console.log("attempt to delete token") &
+        localStorage.removeItem("token")
+    )
+    .catch(err => console.log(err));
 };
 
 export const displayUserList = () => dispatch => {
