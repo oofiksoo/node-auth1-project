@@ -31,7 +31,6 @@ const SignUp = ({ errors, touched, values, userSignup, history }) => {
           name="username"
           placeholder="username"
         />
-        <small> (Between 2 - 24 characters) </small>
         {touched.username && errors.username && (
           <span className="error"> {errors.first_name} </span>
         )}
@@ -42,7 +41,6 @@ const SignUp = ({ errors, touched, values, userSignup, history }) => {
           name="password"
           placeholder="Password"
         />
-        <small> (Must be longer than 4 characters) </small>
         {touched.password && errors.password && (
           <span className="error"> {errors.password} </span>
         )}

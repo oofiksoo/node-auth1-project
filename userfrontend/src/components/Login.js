@@ -4,8 +4,6 @@ import { Form, Field, withFormik } from "formik";
 
 import * as Yup from "yup";
 
-import { NavLink } from "react-router-dom";
-
 import { connect } from "react-redux";
 
 import * as actionCreators from "../actions/actionCreators";
@@ -49,9 +47,6 @@ const Login = ({ errors, touched, values, userLogin, history }) => {
         )}
         <button> Login </button>
       </Form>
-      <NavLink className="form-link" to="/signup">
-        Dont have an account ?
-      </NavLink>
     </div>
   );
 };
