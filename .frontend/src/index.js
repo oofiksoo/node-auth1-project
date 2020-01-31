@@ -10,11 +10,11 @@ import "./index.css";
 import App from "./App";
 
 const store = createStore(combinedReducer, applyMiddleware(thunk));
-const history = createBrowserHistory();
+const History = createBrowserHistory();
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
+    <Router history={History}>
       <App />
     </Router>
   </Provider>,

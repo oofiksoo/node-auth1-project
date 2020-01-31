@@ -28,6 +28,7 @@ router.post("/login", (req, res) => {
                 const token = generateToken(user);
                 req.session.loggedIn = true;
                 req.session.userId = user.id;
+                req.session.department = "New-Department";
                 res.status(200).json({
                     message: `Welcome ${user.username}!`,
                     token
@@ -45,7 +46,8 @@ function generateToken(user) {
     const payload = {
         subject: user.id,
         username: user.username,
-        userid: user.id
+        userid: user.id,
+        department: "test"
     };
 
     const options = {

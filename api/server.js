@@ -6,9 +6,10 @@ const session = require("express-session");
 const KnexSessionStore = require("connect-session-knex")(session);
 const authRouter = require("../auth/auth-router.js");
 const usersRouter = require("../users/users-router.js");
-
+const ProjectsRouter = require("../projects/project-router.js");
+const ResourcesRouter = require("../resources/resource-router.js");
 const server = express();
-
+const validateLogin = require("../auth/validateLogin.js");
 const sessionConfig = {
     name: "CTFcookie01",
     secret: process.env.SESSION_SECRET || "Secret-String",
@@ -32,7 +33,9 @@ server.use(express.json());
 server.use(cors());
 server.use(session(sessionConfig));
 server.use("/api/auth", authRouter);
-server.use("/api/users", usersRouter);
+server.use("/api/users", validateLogin, usersRouter);
+server.use("/api/projects", validateLogin, ProjectsRouter);
+server.use("/api/resources", validateLogin, ResourcesRouter);
 
 server.get("/", (req, res) => {
     res.json({ api: "up" });

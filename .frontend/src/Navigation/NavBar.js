@@ -1,14 +1,15 @@
 import React from "react";
+import { connect } from "react-redux";
 import Styled from "styled-components";
 import { NavLink, Route } from "react-router-dom";
 import Logo from "./logo.js";
+import { userLogout } from "../actions/actionCreators";
 const NavBarContainer = Styled.div`
 display:flex;
 background-color:#0099cc;
 padding:1%;
 width:90%;
 justify-content:flex-end;
-}
 `;
 const NavBarItem = Styled.div`
   display:flex;
@@ -31,7 +32,7 @@ const NavBarItem = Styled.div`
   }
 `;
 
-function NavBar() {
+function NavBar(props) {
   return (
     <NavBarContainer>
       <Logo />
@@ -41,12 +42,12 @@ function NavBar() {
         </NavLink>
       </NavBarItem>
       <NavBarItem>
-        <NavLink to="">
-          <p>Projects</p>
+        <NavLink to="/Logout" onClick={() => props.userLogout()}>
+          <p>Log Out</p>
         </NavLink>
       </NavBarItem>
       <NavBarItem>
-        <NavLink to="/Users">
+        <NavLink to="/users">
           <p>Users</p>
         </NavLink>
       </NavBarItem>
@@ -64,4 +65,10 @@ function NavBar() {
     </NavBarContainer>
   );
 }
-export default NavBar;
+const mapStateToProps = state => {
+  return {
+    users: state.users,
+    usertransaction: state.usertransaction
+  };
+};
+export default connect(mapStateToProps, { userLogout })(NavBar);

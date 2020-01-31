@@ -39,9 +39,6 @@ class UserList extends Component {
   componentDidMount() {
     this.props.displayUserList();
   }
-  handleclose() {
-    this.props.history.goBack();
-  }
   render() {
     if (!this.props.usertransaction) {
       return (
@@ -52,9 +49,6 @@ class UserList extends Component {
     }
     return (
       <UserListContainer>
-        <div className="closebutton" onClick={() => this.handleclose()}>
-          X
-        </div>
         <h1> Registered Users: </h1>
         <UserCardContainer>
           {this.props.users.map(user => (
@@ -63,7 +57,6 @@ class UserList extends Component {
             </UserCard>
           ))}
         </UserCardContainer>
-        <button onClick={() => this.props.userLogout()}>Log Out</button>
       </UserListContainer>
     );
   }
