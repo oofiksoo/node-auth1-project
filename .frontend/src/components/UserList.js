@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { displayUserList, userLogout } from "../actions/actionCreators";
+import { displayUserList } from "../actions/actionCreators";
 import Styled from "styled-components";
 const UserListContainer = Styled.div`
 display:flex;
@@ -67,6 +67,4 @@ const mapStateToProps = state => {
     usertransaction: state.usertransaction
   };
 };
-export default connect(mapStateToProps, { displayUserList, userLogout })(
-  UserList
-);
+export default connect(mapStateToProps, { displayUserList })(UserList);

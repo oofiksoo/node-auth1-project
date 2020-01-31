@@ -6,7 +6,7 @@ export const initialState = {
     users: [],
     logintransaction: false,
     usertransaction: false,
-    token: []
+    token: ""
 };
 
 export const combinedReducer = (state = initialState, action) => {
@@ -17,7 +17,7 @@ export const combinedReducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: "",
-                token: [action.payload],
+                token: "",
                 logintransaction: false
             };
         case types.LOGIN_SUCCESS:
@@ -65,7 +65,7 @@ export const combinedReducer = (state = initialState, action) => {
         case types.LOGOUT:
             return {
                 ...state,
-                token: []
+                token: ""
             };
         default:
             return state;

@@ -8,7 +8,6 @@ const NavBarContainer = Styled.div`
 display:flex;
 background-color:#0099cc;
 padding:1%;
-width:90%;
 justify-content:flex-end;
 `;
 const NavBarItem = Styled.div`
@@ -42,7 +41,7 @@ function NavBar(props) {
         </NavLink>
       </NavBarItem>
       <NavBarItem>
-        <NavLink to="/Logout" onClick={() => props.userLogout()}>
+        <NavLink to="/" onClick={() => props.userLogout()}>
           <p>Log Out</p>
         </NavLink>
       </NavBarItem>
@@ -67,8 +66,11 @@ function NavBar(props) {
 }
 const mapStateToProps = state => {
   return {
+    username: state.username,
     users: state.users,
-    usertransaction: state.usertransaction
+    logintransaction: false,
+    usertransaction: false,
+    token: state.token
   };
 };
 export default connect(mapStateToProps, { userLogout })(NavBar);

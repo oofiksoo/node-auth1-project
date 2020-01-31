@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import NavBar from "../Navigation/NavBar";
 import SideBar from "../Navigation/SideBar";
 import Styled from "styled-components";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -17,16 +16,15 @@ const BodyContainer = Styled.div`
 display:flex;
 `;
 
-function DashBoard(props) {
+function DashBoard(...props) {
   return (
     <Router>
-      <NavBar />
       <BodyContainer>
         <SideBarCont>
           <SideBar />
         </SideBarCont>
         <ContentContainer>
-          <Route path="/" />
+          {console.log(props)}
           <Route path="/users" component={UserList} props={props} />
         </ContentContainer>
       </BodyContainer>
@@ -35,10 +33,11 @@ function DashBoard(props) {
 }
 const mapStateToProps = state => {
   return {
-    username: "",
-    password: "",
-    users: [],
-    token: []
+    username: state.username,
+    users: state.users,
+    logintransaction: false,
+    usertransaction: false,
+    token: state.token
   };
 };
 

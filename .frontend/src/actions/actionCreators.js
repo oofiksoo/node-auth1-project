@@ -22,6 +22,7 @@ export const userLogin = (loginData, history) => dispatch => {
                 payload: res.data.token
             });
             localStorage.setItem("Authorization", res.data.token);
+            console.log(res.data.token);
             history.push("/dashboard");
         })
         .catch(err => console.log(err));

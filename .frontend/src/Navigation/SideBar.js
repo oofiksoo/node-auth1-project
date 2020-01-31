@@ -10,7 +10,7 @@ align-items:center;
 background-color:#0099cc;
 border-radius:0 0 5rem 0;
 padding: 10% 0%;
-height:70vh;
+height:80vh;
 `;
 
 const SideBarItem = Styled.div`
@@ -43,32 +43,32 @@ function SideBar() {
     <SideBarCont>
       <AcntCont>
         <SideBarAcnt />
-      </AcntCont>
+      </AcntCont>{" "}
       <SideBarItem>
         <NavLink exact to="/">
-          <p>Home</p>
-        </NavLink>
-      </SideBarItem>
+          <p> Home </p>{" "}
+        </NavLink>{" "}
+      </SideBarItem>{" "}
       <SideBarItem>
         <NavLink to="">
-          <p>My Projects</p>
-        </NavLink>
-      </SideBarItem>
+          <p> My Projects </p>{" "}
+        </NavLink>{" "}
+      </SideBarItem>{" "}
       <SideBarItem>
         <NavLink to="">
-          <p>My Opportunities</p>
-        </NavLink>
-      </SideBarItem>
+          <p> My Opportunities </p>{" "}
+        </NavLink>{" "}
+      </SideBarItem>{" "}
       <SideBarItem>
         <NavLink to="/">
-          <p>My Accelleration</p>
-        </NavLink>
-      </SideBarItem>
+          <p> My Accelleration </p>{" "}
+        </NavLink>{" "}
+      </SideBarItem>{" "}
       <SideBarItem>
         <NavLink to="/">
-          <p>More</p>
-        </NavLink>
-      </SideBarItem>
+          <p> More </p>{" "}
+        </NavLink>{" "}
+      </SideBarItem>{" "}
       <Route exact path="/" /> <Route path="/symptoms" />
       <Route path="/strains" /> <Route path="/recomendations" />
       <Route path="/DisplayDispensary" />
